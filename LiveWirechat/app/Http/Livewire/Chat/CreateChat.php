@@ -46,7 +46,7 @@ class CreateChat extends Component
         } else if (count($checkedConversation) >= 1) {
 
             dd(
-                'conversation exists'
+                'conversation exist'
             );
         }
         # code...

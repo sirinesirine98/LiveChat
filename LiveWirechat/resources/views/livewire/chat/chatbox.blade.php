@@ -9,8 +9,7 @@
             </div>
 
             <div class="img_container">
-              <!--  <img src="https://picsum.photos/id/231/200/300" alt="">-->
-              <img src="https://ui-avatars.com/api/?name={{ $receiverInstance->name }}" alt="">
+                <img src="https://ui-avatars.com/api/?name={{ $receiverInstance->name }}" alt="">
 
             </div>
 
@@ -47,6 +46,28 @@
                             {{ $message->created_at->format('m: i a') }}
                         </div>
 
+                        <div class="read">
+                            @php
+                                
+                          if($message->user->id === auth()->id()){
+
+                
+                                    if($message->read == 0){
+
+
+                                        echo'<i class="bi bi-check2 status_tick "></i> ';
+                                    }
+                                    else {
+                                        echo'<i class="bi bi-check2-all text-primary  "></i> ';
+                                    }
+
+                          }
+
+
+                            @endphp
+                      
+
+                        </div>
                     </div>
                 </div>
             @endforeach
@@ -54,9 +75,39 @@
         </div>
 
 
+        <script>
+            $(".chatbox_body").on('scroll', function() {
+                // alert('aahsd');
+                var top = $('.chatbox_body').scrollTop();
+                //   alert('aasd');
+                if (top == 0) {
+
+                    window.livewire.emit('loadmore');
+                }
+
+            });
+        </script>
+
+
+        <script>
+            window.addEventListener('updatedHeight', event => {
+
+                let old = event.detail.height;
+                let newHeight = $('.chatbox_body')[0].scrollHeight;
+
+                let height = $('.chatbox_body').scrollTop(newHeight - old);
+
+
+                window.livewire.emit('updateHeight', {
+                    height: height,
+                });
+
+
+            });
+        </script>
     @else
         <div class="fs-4 text-center text-primary mt-5">
-            no conversasion !!
+            no conversation selected
         </div>
 
 
