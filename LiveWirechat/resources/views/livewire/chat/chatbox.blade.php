@@ -107,7 +107,7 @@
         </script>
     @else
         <div class="fs-4 text-center text-primary mt-5">
-            no conversation selected
+            Aucune conversation est sélectionner
         </div>
 
 
