@@ -33,3 +33,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/rendezvous/create', [RendezVousController::class, 'create'])->name('rendezvous.create');
+Route::get('/rendezvous', [RendezVousController::class, 'index'])->name('rendezvous.index');
+Route::post('/rendezvous', [RendezVousController::class, 'store'])->name('rendezvous.store');
+Route::delete('/rendezvous/{id}', [RendezVousController::class, 'destroy'])->name('rendezvous.destroy');
