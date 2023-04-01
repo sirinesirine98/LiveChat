@@ -35,10 +35,10 @@
 
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-    <x-nav-link :href="route('rendezvous.index')" :active="request()->routeIs('rendezvous.index')">
-        {{ __('Liste des RDV') }}
-    </x-nav-link>
-</div>
+                     <x-nav-link :href="route('rendezvous.index')" :active="request()->routeIs('rendezvous.index')">
+                          {{ __('Liste des RDV') }}
+                     </x-nav-link>
+                </div>
 
             </div>
 
